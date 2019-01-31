@@ -300,6 +300,7 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		CDB8939922012526006D5CC8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -441,7 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.alura.eggplant-brownie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.alura.eggplant-brownie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

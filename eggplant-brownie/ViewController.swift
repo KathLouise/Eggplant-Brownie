@@ -9,12 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    @IBOutlet var nameField : UITextField!
+    @IBOutlet var happinessField : UITextField!
+    
+    @IBAction func add(){
+        let name = nameField.text;
+        let happiness = happinessField.text;
+        print("Eaten \(name) with \(happiness)");
     }
-
-
 }
-
