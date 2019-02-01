@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD65F6A722039B9F00A16E85 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CDB8938D22012524006D5CC8 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB8939022012524006D5CC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB8939222012524006D5CC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 				CDB8939722012526006D5CC8 /* Assets.xcassets */,
 				CDB8939922012526006D5CC8 /* LaunchScreen.storyboard */,
 				CDB8939C22012526006D5CC8 /* Info.plist */,
+				CD65F6A722039B9F00A16E85 /* MyPlayground.playground */,
 			);
 			path = "eggplant-brownie";
 			sourceTree = "<group>";
