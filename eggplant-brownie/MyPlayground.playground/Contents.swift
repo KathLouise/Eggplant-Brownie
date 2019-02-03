@@ -1,27 +1,43 @@
 import UIKit
 import PlaygroundSupport
 
-let calories = [50.5, 300, 400, 450, 500, 650];
-
-func allCalories(calories: Array<Double>) -> Double {
-    var total:Double = 0;
+class Meal{
+    var name:String;
+    var happiness:Int;
+    var itens = Array<Item>();
     
-    for calorie in calories{
-        total += calorie;
-        print(calorie);
+    init(name:String, happiness: Int) {
+        self.name = name;
+        self.happiness = happiness;
     }
     
-    return total;
-}
-
-print("Calories: \(allCalories(calories:calories))");
-
-func calculaSoma(valores:Array<Double>) -> Double {
-    var soma: Double = 0
-    for valor in valores {
-        soma += valor
+    func allCalories() -> Double {
+        var total: Double = 0.0;
+        
+        for item in itens {
+            total += item.calories;
+        }
+        return total;
     }
-    return soma
 }
 
-print("Valores: \(calculaSoma(valores:calories))");
+class Item{
+    var name:String;
+    var calories:Double;
+    
+    init(name:String, calories: Double) {
+        self.name = name;
+        self.calories = calories;
+    }
+}
+
+let brownie = Meal(name: "eggplant brownie", happiness: 5);
+print(brownie.name);
+
+let item1 = Item(name: "eggplant", calories: 115);
+let item2 = Item(name: "mignon", calories: 200);
+
+brownie.itens.append(item1);
+brownie.itens.append(item2);
+
+print("All calories sum is: \(brownie.allCalories())");
