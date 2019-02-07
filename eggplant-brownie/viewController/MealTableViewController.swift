@@ -9,8 +9,23 @@
 import UIKit
 
 class MealTableViewController : UITableViewController {
-    let meals = [Meal(name: "Eggplant Brownie", happiness: 5),
+    var meals = [Meal(name: "Eggplant Brownie", happiness: 5),
                  Meal(name: "Jacky's sushi", happiness: 5)];
+    
+    //Recebe uma lista de refeições e adiciona no Array
+    func add(meal:Meal){
+        meals.append(meal);
+        tableView.reloadData();
+    }
+    
+    /*Antes de seguir o caminho, avisa o controller da View
+     seguinte que deve invocar o proprio UITableViewController */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Controller para onde eu estou indo
+        let view = segue.destination as! ViewController;
+        //a sua variavel mealsTable sou eu mesmo
+        view.mealsTable = self;
+    }
 
     /*Retorna o numero de linhas da tabela*/
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var nameField : UITextField?
     @IBOutlet var happinessField : UITextField?
-    
+    var mealsTable: MealTableViewController?    
+
     @IBAction func add(){
         if (nameField == nil || happinessField == nil ){
             return;
@@ -22,6 +23,16 @@ class ViewController: UIViewController {
         if let happiness:Int = Int(happinessField!.text!) {
             let meal = Meal(name: name, happiness: happiness);
             print("Eaten \(meal.name) with \(meal.happiness)");
+            
+            if let mealsList = mealsTable {
+                mealsList.add(meal: meal);
+            }
+        }
+        
+        //se houver alguma coisa no navigationController
+        //desempilha as views ativas.
+        if let navigation = navigationController{
+            navigation.popViewController(animated: true);
         }
     }
 }
