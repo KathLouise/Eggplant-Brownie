@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var nameField : UITextField?
     @IBOutlet var happinessField : UITextField?
-    var mealsTable: MealTableViewController?    
+    var delegate: AddAMealDelegate?
 
     @IBAction func add(){
         if (nameField == nil || happinessField == nil ){
@@ -24,8 +24,8 @@ class ViewController: UIViewController {
             let meal = Meal(name: name, happiness: happiness);
             print("Eaten \(meal.name) with \(meal.happiness)");
             
-            if let mealsList = mealsTable {
-                mealsList.add(meal: meal);
+            if let delegateMeals = delegate {
+                delegateMeals.add(meal);
             }
         }
         

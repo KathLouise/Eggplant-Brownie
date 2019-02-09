@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD7375DE220A520C007B8515 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7375DD220A520C007B8515 /* MealTableViewController.swift */; };
+		CD7F5A1C220E54FA0095F92E /* AddAMealDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */; };
 		CDB8939122012524006D5CC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB8939022012524006D5CC8 /* AppDelegate.swift */; };
 		CDB8939822012526006D5CC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB8939722012526006D5CC8 /* Assets.xcassets */; };
 		CDB893A622012526006D5CC8 /* eggplant_brownieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB893A522012526006D5CC8 /* eggplant_brownieTests.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		CD65F6A722039B9F00A16E85 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CD7375DD220A520C007B8515 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAMealDelegate.swift; sourceTree = "<group>"; };
 		CDB8938D22012524006D5CC8 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB8939022012524006D5CC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB8939722012526006D5CC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				CDC19EF4220679A300005291 /* Meal.swift */,
+				CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */,
 				CDC19EF622067A3B00005291 /* Item.swift */,
 			);
 			path = models;
@@ -294,6 +297,7 @@
 				CD7375DE220A520C007B8515 /* MealTableViewController.swift in Sources */,
 				CDC19EF722067A3B00005291 /* Item.swift in Sources */,
 				CDC19EF5220679A300005291 /* Meal.swift in Sources */,
+				CD7F5A1C220E54FA0095F92E /* AddAMealDelegate.swift in Sources */,
 				CDC19EF922067C2000005291 /* ViewController.swift in Sources */,
 				CDB8939122012524006D5CC8 /* AppDelegate.swift in Sources */,
 			);
