@@ -14,7 +14,7 @@ class MealTableViewController : UITableViewController, AddAMealDelegate{
     
     //Recebe uma lista de refeições e adiciona no Array
     func add(_ meal:Meal){
-        meals.append(meal);     
+        meals.append(meal);
         tableView.reloadData();
     }
     
