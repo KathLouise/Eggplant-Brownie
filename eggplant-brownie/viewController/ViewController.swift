@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAnItemDelegate {
     @IBOutlet var nameField : UITextField?
     @IBOutlet var happinessField : UITextField?
+    @IBOutlet var tableView: UITableView?
     var delegate: AddAMealDelegate?
+    var delateItem: AddAnItemDelegate?
     var selected = Array<Item> ()
     
-    let itens = [Item(name: "Eggplant", calories: 10),
+    var itens = [Item(name: "Eggplant", calories: 10),
                  Item(name: "Brownie", calories: 10),
                  Item(name: "Chocolate", calories: 100),
                  Item(name: "Muffin", calories: 50),
@@ -22,6 +24,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                  Item(name: "Rice", calories: 50),
                  Item(name: "Beef", calories: 120),
                  Item(name: "Potato", calories: 20)]
+    
+    override func viewDidLoad() {
+        let newItemButton = UIBarButtonItem(title: "New Item", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showNewItem));
+        navigationItem.rightBarButtonItem = newItemButton;
+    }
+    
+    func add(_ item: Item){
+        itens.append(item);
+        if let table = tableView{
+            table.reloadData()
+        }
+    }
+    
+    @objc func showNewItem() {
+        let newItem = NewItemViewController(delegate: self);
+        if let navigationController = navigationController{
+            navigationController.pushViewController(newItem, animated: true);
+        }
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itens.count;
