@@ -47,6 +47,22 @@ class MealTableViewController : UITableViewController, AddAMealDelegate{
         //conteúdo da celula = nome da refeiçao
         cell.textLabel!.text = meal.name;
         
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(showDetails));
+        cell.addGestureRecognizer(recognizer);
+        
         return cell;
+    }
+    
+    /*Pego o evento de Long press do usuário e
+      identifico a celula pressionada com long press*/
+    @objc func showDetails(reconizer: UILongPressGestureRecognizer){
+        if(reconizer.state == UILongPressGestureRecognizer.State.began){
+            //UIView casting para UITableViewCell
+            let cell = reconizer.view as! UITableViewCell;
+            if let indexPath = tableView.indexPath(for: cell){
+                let meal = meals[indexPath.row];
+                print("long press \(meal.name)");
+            }
+        }
     }
 }
