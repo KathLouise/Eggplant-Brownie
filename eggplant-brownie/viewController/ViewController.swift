@@ -30,10 +30,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationItem.rightBarButtonItem = newItemButton;
     }
     
+    /*Verifica se a tabela existe
+      Se existir, adiciona o item e atualiza os dados
+      Senão, mostra uma mensagem de alerta na tela*/
     func add(_ item: Item){
         itens.append(item);
         if let table = tableView{
             table.reloadData()
+        } else {
+            let alert = UIAlertController(title: "Sorry", message: "Unable to update de table", preferredStyle: UIAlertController.Style.alert);
+            let okay = UIAlertAction(title: "Okay", style: UIAlertAction.Style.cancel, handler: nil);
+            
+            alert.addAction(okay);
+            present(alert, animated: true, completion: nil)
         }
     }
     
