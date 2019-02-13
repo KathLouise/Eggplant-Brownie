@@ -38,11 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let table = tableView{
             table.reloadData()
         } else {
-            let alert = UIAlertController(title: "Sorry", message: "Unable to update de table", preferredStyle: UIAlertController.Style.alert);
-            let okay = UIAlertAction(title: "Okay", style: UIAlertAction.Style.cancel, handler: nil);
-            
-            alert.addAction(okay);
-            present(alert, animated: true, completion: nil)
+            Alert(controller:self).show(message: "Unable to update de table");
         }
     }
     
@@ -50,6 +46,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let newItem = NewItemViewController(delegate: self);
         if let navigationController = navigationController{
             navigationController.pushViewController(newItem, animated: true);
+        } else {
+            Alert(controller:self).show();
         }
         
     }
@@ -66,47 +64,95 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell;
     }
     
-    /*Pega a celula da tabela que foi clicada
-      Verifica se ela já foi selecionada ou não
-      Se não foi, coloca um checkmark e adiciona na lista
-      Caso contrário, retira o checkmark  e retira da lista*/
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath){
-            if(cell.accessoryType == UITableViewCell.AccessoryType.none){
-                cell.accessoryType = UITableViewCell.AccessoryType.checkmark;
-                let item = itens[indexPath.row];
-                selected.append(item);
-            } else {
-                cell.accessoryType = UITableViewCell.AccessoryType.none;
-                let item = itens[indexPath.row];
-                //compare o item que passamos com todos os elementos dentro do array
-                if let position = selected.index(of: item){
-                    //se achar, remova
-                    selected.remove(at: position);
-                }
-            }
+    /*adiciona os itens no array de selecionados
+    para compor uma refeição que esta sendo adicionada*/
+    func addItens(indexPath: IndexPath){
+        let item = itens[indexPath.row];
+        selected.append(item);
+    }
+    
+    /*Procura dentro do array de selecionados
+    pelo item que foi desmarcado, para retira-lo
+    Senão encontrar, mostra uma mensagem de erro.*/
+    func removeItens(indexPath: IndexPath){
+        let item = itens[indexPath.row];
+        //compare o item que passamos com todos os elementos dentro do array
+        if let position = selected.index(of: item){
+            //se achar, remova
+            selected.remove(at: position);
+        } else {
+            Alert(controller: self).show();
         }
     }
-
-    @IBAction func add(){
-        if (nameField == nil || happinessField == nil ){
-            return;
+    
+    /*Verifica se a celula foi marcada ou não,
+     Se não foi, então marca e adiciona no array
+     Senão, desmarca e retira do array. */
+    func checkmarkCell(cell: UITableViewCell, indexPath: IndexPath){
+        if(cell.accessoryType == UITableViewCell.AccessoryType.none){
+            cell.accessoryType = UITableViewCell.AccessoryType.checkmark;
+            addItens(indexPath: indexPath);
+        } else {
+            cell.accessoryType = UITableViewCell.AccessoryType.none;
+            removeItens(indexPath: indexPath);
         }
-        
-        let name:String = nameField!.text!;
-        if let happiness:Int = Int(happinessField!.text!) {
-            let meal = Meal(name: name, happiness: happiness, itens: selected);
-            print("Eaten \(meal.name) with \(meal.happiness) and \(meal.itens)");
-            
-            if let delegateMeals = delegate {
-                delegateMeals.add(meal);
+    }
+    
+    /*Tenta pegar o valor da celula que foi pressionada,
+     Se conseguir, valida se ela foi marcada ou não
+     para marca-la ou desmarca-la.
+     Se não conseguir pegar a celula, apresenta uma mensagem
+     de erro padrão*/
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+            checkmarkCell(cell: cell, indexPath: indexPath);
+        } else {
+            Alert(controller: self).show();
+        }
+    }
+    
+    /* recebo uma string opcional e tento converte-la
+    para um Int opcional.
+     Se conseguir, retorna um Int opcional.
+     Senão conseguir, retorna nulo*/
+    func convertToInt(_ text:String?) -> Int?{
+        if let number = text{
+            return Int(number);
+        }
+        return nil;
+    }
+    
+    /*Pega o que foi digitado nos forms e selecionado na tabela
+     de ingredientes e tenta compor uma nova refeiçao.
+     Senão conseguir, retorna nulo*/
+    func getMealFromForm() -> Meal? {
+        if let name = nameField?.text{
+            if let happiness = convertToInt(happinessField?.text){
+                let meal = Meal(name: name, happiness: happiness, itens: selected);
+                print("Eaten \(meal.name) with \(meal.happiness) and \(meal.itens)");
+                return meal;
             }
         }
-        
-        //se houver alguma coisa no navigationController
-        //desempilha as views ativas.
-        if let navigation = navigationController{
-            navigation.popViewController(animated: true);
+        return nil;
+    }
+
+    /*Se conseguir compor uma nova refeiçao e tenta
+    adiciona-a na tabela de refeiçoes.
+     Caso não consiga, então mostra um alerta*/
+    @IBAction func add(){
+        if let meal = getMealFromForm(){
+            if let delegateMeals = delegate{
+                delegateMeals.add(meal);
+                //se houver alguma coisa no navigationController
+                //desempilha as views ativas.
+                if let navigation = navigationController{
+                    navigation.popViewController(animated: true);
+                } else {
+                    Alert(controller: self).show(message: "Unable to navigate, but meal was successfully added");
+                }
+                return;
+            }
         }
+        Alert(controller: self).show();
     }
 }

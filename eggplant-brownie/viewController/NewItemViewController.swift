@@ -23,22 +23,42 @@ class NewItemViewController: UIViewController {
         self.delegate = delegate;
     }
     
+    /*Tenta converter uma string opcional para Double opcional*/
+    func convertToDouble(_ text:String?) -> Double?{
+        if let number = text{
+            return Double(number);
+        }
+        return nil;
+    }
+    
+    /*Pega o que foi digitado nos forms e
+     tenta compor um novo item.
+     Senão conseguir, retorna nulo*/
+    func getItemFromForm() -> Item? {
+        if let name = nameField?.text{
+            if let callories = convertToDouble(calloriesField?.text){
+                let item = Item(name: name, calories: callories);
+                return item;
+            }
+        }
+        return nil;
+    }
+    
     /*Adiciona um novo item e retorna para a tela anterior*/
     @IBAction func add() {
-        let name = nameField!.text;
-        let callories = Double((calloriesField!.text)!);
-        
-        if (name == nil || callories == nil || delegate == nil){
-            return;
+        if let item = getItemFromForm(){
+            if let delegateItem = delegate {
+                delegateItem.add(item);
+                print("Adding new item");
+                if let navigationController = navigationController {
+                    navigationController.popViewController(animated: true);
+                } else {
+                    Alert(controller: self).show(message: "Unable to navigate, but item was successfully added");
+                }
+                return;
+            }
         }
-        
-        let item = Item(name: name!, calories: callories!);
-        delegate?.add(item);
-        
-        print("Adding new item");
-        if let navigationController = navigationController {
-            navigationController.popViewController(animated: true);
-        }
+        Alert(controller: self).show();
     }
 
 }

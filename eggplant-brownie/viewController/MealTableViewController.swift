@@ -62,12 +62,12 @@ class MealTableViewController : UITableViewController, AddAMealDelegate{
             if let indexPath = tableView.indexPath(for: cell){
                 let meal = meals[indexPath.row];
                 //Chama uma função que mostra o alerta com as informações
-                addAlert(meal: meal);
+                showModal(meal: meal);
             }
         }
     }
     
-    func addAlert(meal: Meal){
+    func showModal(meal: Meal){
         let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert);
         // configura o botão para fechar a modal
         let ok = UIAlertAction(title: "Okay", style: UIAlertAction.Style.cancel, handler: nil);

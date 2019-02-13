@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD7375DE220A520C007B8515 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7375DD220A520C007B8515 /* MealTableViewController.swift */; };
 		CD7F5A1C220E54FA0095F92E /* AddAMealDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */; };
+		CD98B96B221362FA00837D7C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD98B96A221362FA00837D7C /* Alert.swift */; };
 		CDA6EAAB2210A54D0000C188 /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA6EAAA2210A54D0000C188 /* NewItemViewController.xib */; };
 		CDA6EAAD2210A5570000C188 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6EAAC2210A5570000C188 /* NewItemViewController.swift */; };
 		CDA6EAAF2210C1880000C188 /* AddAnItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6EAAE2210C1880000C188 /* AddAnItemDelegate.swift */; };
@@ -44,6 +45,7 @@
 		CD65F6A722039B9F00A16E85 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CD7375DD220A520C007B8515 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAMealDelegate.swift; sourceTree = "<group>"; };
+		CD98B96A221362FA00837D7C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CDA6EAAA2210A54D0000C188 /* NewItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
 		CDA6EAAC2210A5570000C188 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		CDA6EAAE2210C1880000C188 /* AddAnItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnItemDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				CDC19EFB22067E6A00005291 /* Main.storyboard */,
 				CDA6EAAA2210A54D0000C188 /* NewItemViewController.xib */,
+				CD98B96A221362FA00837D7C /* Alert.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD98B96B221362FA00837D7C /* Alert.swift in Sources */,
 				CD7375DE220A520C007B8515 /* MealTableViewController.swift in Sources */,
 				CDC19EF722067A3B00005291 /* Item.swift in Sources */,
 				CDC19EF5220679A300005291 /* Meal.swift in Sources */,
