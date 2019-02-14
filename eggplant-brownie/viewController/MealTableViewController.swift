@@ -54,28 +54,23 @@ class MealTableViewController : UITableViewController, AddAMealDelegate{
     }
     
     /*Pego o evento de Long press do usuário e
-      identifico a celula pressionada com long press*/
+      identifico a celula pressionada com long press
+      Adiciona um botão de fechar o alert e outro de
+     remover elemento do Array*/
     @objc func showDetails(reconizer: UILongPressGestureRecognizer){
         if(reconizer.state == UILongPressGestureRecognizer.State.began){
             //UIView casting para UITableViewCell
             let cell = reconizer.view as! UITableViewCell;
             if let indexPath = tableView.indexPath(for: cell){
+                
                 let meal = meals[indexPath.row];
-                //Chama uma função que mostra o alerta com as informações
-                showModal(meal: meal);
+                
+                RemoveMealController(controller: self).show(meal, handler:
+                    {action in
+                    self.meals.remove(at: indexPath.row);
+                    self.tableView.reloadData();
+                });
             }
         }
-    }
-    
-    func showModal(meal: Meal){
-        let details = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertController.Style.alert);
-        // configura o botão para fechar a modal
-        let ok = UIAlertAction(title: "Okay", style: UIAlertAction.Style.cancel, handler: nil);
-        
-        //adiciona o botão na modal
-        details.addAction(ok);
-        
-        //para somente apresentar a controller alert
-        present(details, animated: true, completion: nil);
     }
 }

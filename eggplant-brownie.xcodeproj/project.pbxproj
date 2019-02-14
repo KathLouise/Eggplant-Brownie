@@ -22,6 +22,7 @@
 		CDC19EF922067C2000005291 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC19EF822067C2000005291 /* ViewController.swift */; };
 		CDC19EFD22067E6A00005291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC19EFB22067E6A00005291 /* Main.storyboard */; };
 		CDC19F00220680DC00005291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC19EFE220680DC00005291 /* LaunchScreen.storyboard */; };
+		CDC393482214EB940088FCBD /* RemoveMealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC393472214EB940088FCBD /* RemoveMealController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		CDC19EF822067C2000005291 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CDC19EFB22067E6A00005291 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CDC19EFF220680DC00005291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CDC393472214EB940088FCBD /* RemoveMealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveMealController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				CDC19EF822067C2000005291 /* ViewController.swift */,
 				CDA6EAAC2210A5570000C188 /* NewItemViewController.swift */,
 				CD7375DD220A520C007B8515 /* MealTableViewController.swift */,
+				CDC393472214EB940088FCBD /* RemoveMealController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC393482214EB940088FCBD /* RemoveMealController.swift in Sources */,
 				CD98B96B221362FA00837D7C /* Alert.swift in Sources */,
 				CD7375DE220A520C007B8515 /* MealTableViewController.swift in Sources */,
 				CDC19EF722067A3B00005291 /* Item.swift in Sources */,
