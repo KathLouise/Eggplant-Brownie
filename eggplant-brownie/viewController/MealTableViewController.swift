@@ -15,7 +15,47 @@ class MealTableViewController : UITableViewController, AddAMealDelegate{
     //Recebe uma lista de refeições e adiciona no Array
     func add(_ meal:Meal){
         meals.append(meal);
+        recordURLMeals();
         tableView.reloadData();
+    }
+    
+    override func viewDidLoad() {
+        loadMeals();
+    }
+    
+    /*Pega o diretorio de documentos do usuário para salvar o arquivo*/
+    func getDocumentsDirectory() -> URL{
+        let dirs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask);
+        return dirs[0];
+    }
+    
+    /*Monta o caminho do diretorio, fornecendo o nome do arquivo*/
+    func getURLMeals() -> URL{
+        return getDocumentsDirectory().appendingPathComponent("egg-plant-meals.dados");
+    }
+    
+    /*Tenta gravar as refeiçoes dentro do arquivo
+     o caminho e o arquivo são obtidos atraves da função getURLMeals*/
+    func recordURLMeals(){
+        do{
+            let path = getURLMeals();
+            print(path);
+            let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false);
+            try data.write(to: path);
+        } catch {
+            print("Couldn't write file");
+        }
+    }
+    
+    func loadMeals() {
+        do {
+            let data = try Data(contentsOf: getURLMeals());
+            if let loadedMeals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Meal>{
+                meals = loadedMeals;
+            }
+        } catch {
+            print("Couldn't read file");
+        }
     }
     
     /*Antes de seguir o caminho, avisa o controller da View

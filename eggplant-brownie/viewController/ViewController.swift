@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         let newItemButton = UIBarButtonItem(title: "New Item", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showNewItem));
         navigationItem.rightBarButtonItem = newItemButton;
+        loadItems();
     }
     
     /*Verifica se a tabela existe
@@ -35,6 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
       Senão, mostra uma mensagem de alerta na tela*/
     func add(_ item: Item){
         itens.append(item);
+        recordURLItems()
         if let table = tableView{
             table.reloadData()
         } else {
@@ -134,6 +136,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         return nil;
+    }
+    
+    /*Pega o diretorio de documentos do usuário para salvar o arquivo*/
+    func getDocumentsDirectory() -> URL{
+        let dirs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask);
+        return dirs[0];
+    }
+    
+    /*Monta o caminho do diretorio, fornecendo o nome do arquivo*/
+    func getURLItems() -> URL{
+        return getDocumentsDirectory().appendingPathComponent("egg-plant-items.dados");
+    }
+    
+    /*Tenta gravar as refeiçoes dentro do arquivo
+     o caminho e o arquivo são obtidos atraves da função getURLMeals*/
+    func recordURLItems(){
+        do{
+            let path = getURLItems();
+            print(path);
+            let data = try NSKeyedArchiver.archivedData(withRootObject: itens, requiringSecureCoding: false);
+            try data.write(to: path);
+        } catch {
+            print("Couldn't write file");
+        }
+    }
+    
+    func loadItems() {
+        do {
+            let data = try Data(contentsOf: getURLItems());
+            if let loadedItems = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Item>{
+                itens = loadedItems;
+            }
+        } catch {
+            print("Couldn't read file");
+        }
     }
 
     /*Se conseguir compor uma nova refeiçao e tenta

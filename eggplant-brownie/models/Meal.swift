@@ -9,10 +9,24 @@
 import Foundation
 import UIKit
 
-class Meal{
+class Meal: NSObject, NSCoding {
     let name:String;
     let happiness:Int;
     let itens: Array<Item>;
+    
+    /*Como a classe deve ser desserializada*/
+    required init?(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String;
+        self.happiness = aDecoder.decodeInteger(forKey: "happiness");
+        self.itens = aDecoder.decodeObject(forKey: "itens") as! Array<Item>;
+    }
+    
+    /*Como a classe deve ser serializada */
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name");
+        aCoder.encode(happiness, forKey: "happiness");
+        aCoder.encode(itens, forKey:"itens");
+    }
     
     init(name:String, happiness: Int, itens: Array<Item> = []) {
         self.name = name;

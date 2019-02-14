@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Item: Equatable{
+class Item: NSObject, NSCoding{
     
     let name:String;
     let calories:Double;
@@ -17,6 +17,18 @@ class Item: Equatable{
     init(name:String, calories: Double) {
         self.name = name;
         self.calories = calories;
+    }
+    
+    /*Como a classe deve ser desserializada*/
+    required init?(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String;
+        self.calories = aDecoder.decodeDouble(forKey: "calories");
+    }
+    
+    /*Como a classe deve ser serializada*/
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name");
+        aCoder.encode(calories, forKey: "calories");
     }
 }
 
