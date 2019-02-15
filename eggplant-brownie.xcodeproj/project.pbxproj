@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CD2A8D242216275B00DD039F /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2A8D232216275B00DD039F /* NewItemViewController.xib */; };
 		CD2A8D262216278A00DD039F /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2A8D252216278A00DD039F /* NewItemViewController.swift */; };
+		CD2A8D2822162F3400DD039F /* DaoMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2A8D2722162F3400DD039F /* DaoMeal.swift */; };
+		CD2A8D2A22162F4300DD039F /* DaoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2A8D2922162F4300DD039F /* DaoItem.swift */; };
 		CD7375DE220A520C007B8515 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7375DD220A520C007B8515 /* MealTableViewController.swift */; };
 		CD7F5A1C220E54FA0095F92E /* AddAMealDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */; };
 		CD98B96B221362FA00837D7C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD98B96A221362FA00837D7C /* Alert.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		CD2A8D232216275B00DD039F /* NewItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
 		CD2A8D252216278A00DD039F /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		CD2A8D2722162F3400DD039F /* DaoMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoMeal.swift; sourceTree = "<group>"; };
+		CD2A8D2922162F4300DD039F /* DaoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoItem.swift; sourceTree = "<group>"; };
 		CD65F6A722039B9F00A16E85 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CD7375DD220A520C007B8515 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAMealDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 				CD7F5A1B220E54FA0095F92E /* AddAMealDelegate.swift */,
 				CDC19EF622067A3B00005291 /* Item.swift */,
 				CDA6EAAE2210C1880000C188 /* AddAnItemDelegate.swift */,
+				CD2A8D2722162F3400DD039F /* DaoMeal.swift */,
+				CD2A8D2922162F4300DD039F /* DaoItem.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -314,8 +320,10 @@
 				CD98B96B221362FA00837D7C /* Alert.swift in Sources */,
 				CD2A8D262216278A00DD039F /* NewItemViewController.swift in Sources */,
 				CD7375DE220A520C007B8515 /* MealTableViewController.swift in Sources */,
+				CD2A8D2822162F3400DD039F /* DaoMeal.swift in Sources */,
 				CDC19EF722067A3B00005291 /* Item.swift in Sources */,
 				CDC19EF5220679A300005291 /* Meal.swift in Sources */,
+				CD2A8D2A22162F4300DD039F /* DaoItem.swift in Sources */,
 				CD7F5A1C220E54FA0095F92E /* AddAMealDelegate.swift in Sources */,
 				CDA6EAAF2210C1880000C188 /* AddAnItemDelegate.swift in Sources */,
 				CDC19EF922067C2000005291 /* ViewController.swift in Sources */,

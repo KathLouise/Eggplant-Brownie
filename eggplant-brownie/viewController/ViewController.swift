@@ -16,19 +16,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var delateItem: AddAnItemDelegate?
     var selected = Array<Item> ()
     
-    var itens = [Item(name: "Eggplant", calories: 10),
-                 Item(name: "Brownie", calories: 10),
-                 Item(name: "Chocolate", calories: 100),
-                 Item(name: "Muffin", calories: 50),
-                 Item(name: "Carrot", calories: 10),
-                 Item(name: "Rice", calories: 50),
-                 Item(name: "Beef", calories: 120),
-                 Item(name: "Potato", calories: 20)]
+    var itens: Array<Item> = []
     
     override func viewDidLoad() {
         let newItemButton = UIBarButtonItem(title: "New Item", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showNewItem));
         navigationItem.rightBarButtonItem = newItemButton;
-        loadItems();
+        self.itens = DaoItem().load();
     }
     
     /*Verifica se a tabela existe
@@ -36,7 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
       Senão, mostra uma mensagem de alerta na tela*/
     func add(_ item: Item){
         itens.append(item);
-        recordURLItems()
+        DaoItem().save(itens)
         if let table = tableView{
             table.reloadData()
         } else {
@@ -138,41 +131,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return nil;
     }
     
-    /*Pega o diretorio de documentos do usuário para salvar o arquivo*/
-    func getDocumentsDirectory() -> URL{
-        let dirs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask);
-        return dirs[0];
-    }
-    
-    /*Monta o caminho do diretorio, fornecendo o nome do arquivo*/
-    func getURLItems() -> URL{
-        return getDocumentsDirectory().appendingPathComponent("egg-plant-items.dados");
-    }
-    
-    /*Tenta gravar as refeiçoes dentro do arquivo
-     o caminho e o arquivo são obtidos atraves da função getURLMeals*/
-    func recordURLItems(){
-        do{
-            let path = getURLItems();
-            print(path);
-            let data = try NSKeyedArchiver.archivedData(withRootObject: itens, requiringSecureCoding: false);
-            try data.write(to: path);
-        } catch {
-            print("Couldn't write file");
-        }
-    }
-    
-    func loadItems() {
-        do {
-            let data = try Data(contentsOf: getURLItems());
-            if let loadedItems = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Array<Item>{
-                itens = loadedItems;
-            }
-        } catch {
-            print("Couldn't read file");
-        }
-    }
-
     /*Se conseguir compor uma nova refeiçao e tenta
     adiciona-a na tabela de refeiçoes.
      Caso não consiga, então mostra um alerta*/
