@@ -37,7 +37,7 @@ Versão 1.0
 ## Licença
 
 Este projeto é gratuito. 
-Sinta-se se livre para baixa-lo, usá-lo e fazer alterações.
+Sinta-se se livre para baixa-lo, usa-lo e fazer alterações.
 
 ## Conhecimentos
 
