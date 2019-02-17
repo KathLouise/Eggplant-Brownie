@@ -9,7 +9,6 @@ Estas intruções lhe permitem fazer uma cópia do projeto e rodá-lo em sua má
 
 ### Pré-requistos
 
-What things you need to install the software and how to install them
 Para você poder olhar este projeto, deve ter instalado o XCode.
 
 * Ele pode ser obtido através da AppStore
