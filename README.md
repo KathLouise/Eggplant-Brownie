@@ -9,7 +9,7 @@ Estas intruções lhe permitem fazer uma cópia do projeto e rodá-lo em sua má
 
 ### Pré-requistos
 
-Para você poder olhar este projeto, deve ter instalado o XCode.
+Para poder olhar este projeto, é necessário possuir o XCode 10 instalado.
 
 * Ele pode ser obtido através da AppStore
 * Ou baixado do site da [Apple](https://developer.apple.com/develop/)
