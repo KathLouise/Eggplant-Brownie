@@ -1,4 +1,4 @@
-# Eggplant-Brownie
+# Eggplant Brownie
 
 Um aplicativo IOS básico que mostra uma lista com as refeições, podendo apresentar uma modal (se o usuário usar "long press") com o nível de felicidade e os itens que compõem aquela refeição.
 Ele permite que o usuário adicione suas refeições e os itens que as compõem e salvando todas essas alterações em arquivos que servem como banco da registros que serão carregados a cada vez que o aplicativo é iniciado.
