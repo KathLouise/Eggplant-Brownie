@@ -43,3 +43,4 @@ Sinta-se se livre para baixa-lo, usa-lo e fazer alterações.
 * Este projeto foi feito para rodar em sistemas com IOS 12.1
 * Possui persistencia de dados
 * Projeto construído com base nos cursos de Swift 3 fornecidos na plataforma do Alura
+* Modelo MVC
