@@ -44,3 +44,4 @@ Sinta-se se livre para baixa-lo, usa-lo e fazer alterações.
 * Possui persistencia de dados
 * Projeto construído com base nos cursos de Swift 3 fornecidos na plataforma do Alura
 * Modelo MVC
+* Uso de .XiB
